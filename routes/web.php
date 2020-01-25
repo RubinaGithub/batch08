@@ -34,4 +34,8 @@ Route::post('/submit-contact', function (Request $request) {
     return view('/show_details',['data'=>$data]);
 });
 
-
+Route::post('/add-to-cart','CartController@addToCart');
+Route::get('/mycart','CartController@mycart');
+Route::post('/update-cart','CartController@updateCart');
+Route::any('/cartItemDelete/{temp_order_row_id}','CartController@cartItemDelete');
+Route::any('/cartItemDeleteAll','CartController@cartItemDeleteAll');

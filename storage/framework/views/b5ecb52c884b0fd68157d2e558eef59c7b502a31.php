@@ -25,7 +25,7 @@
             <form id="submitCart" action="<?php echo e(url('/')); ?>/add-to-cart" method="post">
                <?php echo e(csrf_field()); ?>
 
-               <input type="hidden" name="product_row_id" value=""/>
+               <input type="hidden" name="product_row_id" value="<?php echo e($data->product_row_id); ?>"/>
               <div class="cart-plus-minus">
                 <label for="qty">Quantity:</label>
                 <div class="numbers-row">

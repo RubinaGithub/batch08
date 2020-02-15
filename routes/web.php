@@ -41,7 +41,12 @@ Route::post('/user-registration','Auth\CommonController@register')->name('user.r
 Route::view('/about', 'about');
 
 Route::view('/contact_us', 'contact');
-//Route::view('/thankyou,'thankyou');
+
+Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::view('/admin', 'admin.login');
+    Route::post('/postAdminLogin', 'LoginController@postAdminLogin'); 
+    Route::get('/admin/logout', 'LoginController@logout');Route::get('/admin/dashboard', 'DashboardController@index');
+});
 Route::post('/submit-contact', function (Request $request){
 //	dd($request);
 	$data = array('name'=>$request->username,'email' => $request->email, 'message' => $request->message);

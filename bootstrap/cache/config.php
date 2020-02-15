@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:Mn6g/aHLeBk82KNfuSKfYl5eyZUxL3WwpcZzuA5LjpE=',
+    'key' => 'base64:KmnVG6eP8IQYNcZFWhOlOXl43h/IwGj6odNL63ngwu4=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -94,6 +94,11 @@
         'driver' => 'session',
         'provider' => 'users',
       ),
+      'admins' => 
+      array (
+        'driver' => 'session',
+        'provider' => 'admins',
+      ),
       'api' => 
       array (
         'driver' => 'token',
@@ -107,6 +112,11 @@
       array (
         'driver' => 'eloquent',
         'model' => 'App\\User',
+      ),
+      'admins' => 
+      array (
+        'driver' => 'eloquent',
+        'model' => 'App\\Admin',
       ),
     ),
     'passwords' => 

@@ -17,8 +17,8 @@ use Illuminate\http\Request;
 });*/
 
 Route::get('/','HomeController@index');
-
 Route::resource('/product','ProductController');
+
 //cart
 Route::get('/mycart','CartController@mycart');
 Route::post('/add-to-cart','CartController@addToCart');
@@ -45,7 +45,12 @@ Route::view('/contact_us', 'contact');
 Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
     Route::view('/admin', 'admin.login');
     Route::post('/postAdminLogin', 'LoginController@postAdminLogin'); 
-    Route::get('/admin/logout', 'LoginController@logout');Route::get('/admin/dashboard', 'DashboardController@index');
+    Route::get('/admin/logout', 'LoginController@logout');
+    Route::get('/admin/dashboard', 'DashboardController@index');
+
+    //Route::post('/admin/testdatainsert', 'DashboardController@testdatainsert');
+    Route::get('/admin/products', 'ProductController@index');
+    //Route::get('/admin/product/create', 'ProductController@create');
 });
 Route::post('/submit-contact', function (Request $request){
 //	dd($request);
